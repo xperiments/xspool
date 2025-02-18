@@ -2,7 +2,9 @@
 sidebar_position: 5
 ---
 
-# Sync Custom Filament Profiles
+import screenshot1 from '/img/app/screenshot4.png';
+
+# Custom Filament Profiles
 
 The **Sync Page** in xspool allows you to import and sync your custom filament profiles from **BambuStudio (BBS)** and **OrcaSlicer**. This enables you to write custom filament data to OpenBamboo tags, making them recognizable by the AMS system.
 
@@ -40,6 +42,10 @@ Before syncing, you need to locate the **BambuStudio** or **OrcaSlicer app data 
 ### **Step 1: Open the Sync Page**
 
 - Navigate to the **Sync Page** on your xspool device.
+
+<div style={{marginTop:"48px",marginBottom:"48px"}}>
+<img src={screenshot1} style={{width:"260px", borderRadius:"25px", marginRight:"16px"}}/>
+</div>
 
 ### **Step 2: Drag & Drop the Data Folder**
 

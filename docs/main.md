@@ -2,11 +2,11 @@
 sidebar_position: 1
 ---
 
-# Welcome to XSpool
+# Welcome to xspool
 
-XSpool is a spool management tool designed to simplify 3D printing filament handling. It supports **BambuLab AMS**, **Creality CFS**, and **OpenBamboo** spools, allowing easy tracking, organization, and integration with your printing workflow.
+xspool is a spool management tool designed to simplify 3D printing filament handling. It supports **BambuLab AMS**, **Creality CFS**, and **OpenBamboo** spools, allowing easy tracking, organization, and integration with your printing workflow.
 
-## Why Use XSpool?
+## Why Use xspool?
 
 - **Broad Compatibility** – Works with OpenBamboo, BambuLab official spools, and Creality CFS (both encrypted and non-encrypted).
 - **AMS Integration** – Assigns spools to AMS slots automatically.
@@ -14,4 +14,4 @@ XSpool is a spool management tool designed to simplify 3D printing filament hand
 - **Flexible Setup** – Use as a standalone tool or pair with XTouch-Pro.
 - **Spool Data Management** – Read, write, and organize filament data efficiently.
 
-XSpool helps streamline filament handling, making it easier to manage spools across different systems.
+xspool helps streamline filament handling, making it easier to manage spools across different systems.

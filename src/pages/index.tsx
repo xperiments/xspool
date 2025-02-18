@@ -71,7 +71,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="XSpool is a spool management tool designed to simplify 3D printing filament handling. It supports BambuLab AMS, Creality CFS, and OpenBamboo spools, allowing easy tracking, organization, and integration with your printing workflow."
+      description="xspool is a spool management tool designed to simplify 3D printing filament handling. It supports BambuLab AMS, Creality CFS, and OpenBamboo spools, allowing easy tracking, organization, and integration with your printing workflow."
     >
       <HomepageHeader />
       <main>
