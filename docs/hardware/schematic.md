@@ -19,13 +19,19 @@ sidebar_position: 1
 
 - **Description**: A 30-pin microcontroller with Wi-Fi and Bluetooth capabilities, suitable for a wide range of IoT applications.
 
+https://s.click.aliexpress.com/e/_onmXCw0
+
 ### RFID-RC522
 
 - **Description**: An RFID reader/writer module for interfacing with RFID tags operating at 13.56 MHz.
 
+https://s.click.aliexpress.com/e/_oDqXQIC
+
 ### WS2812B White LED
 
 - **Description**: An individually addressable LED with integrated control circuitry.
+
+https://s.click.aliexpress.com/e/_ooOaxY0
 
 ### Touch Button
 
