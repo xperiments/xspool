@@ -3,7 +3,9 @@ sidebar_position: 1
 ---
 
 import Enclosure from '/img/xspool-vector-a.svg';
-import EnclosureFront from '/img/xspool-vector-b.svg';
+import EnclosureFront from '/img/xspool-vector-c.svg';
+import screenshot from '/img/app/screenshot3.png';
+import screenshot1 from '/img/app/screenshot11.png';
 
 # Reading Tags
 
@@ -17,9 +19,13 @@ xspool allows you to **read RFID spool tags** and determine their status in real
 
 1️⃣ **Place the tag** on the RFID reader.  
 2️⃣ **Wait for xspool to process the tag** (this takes a few seconds).  
-3️⃣ The tag status will be shown on the device led with different colors:
+3️⃣ The tag status will be shown on the device led with different colors
 
-<EnclosureFront width={500} height={500} />
+<div style={{marginTop:"48px",marginBottom:"48px"}}>
+<EnclosureFront width={400} height={400} />
+<img src={screenshot} style={{width:"260px", borderRadius:"25px", marginRight:"16px"}}/>
+<img src={screenshot1} style={{width:"260px", borderRadius:"25px", marginRight:"16px"}}/>
+</div>
 
 | **Status**                              | **Color**  | **Meaning**                                                                       |
 | --------------------------------------- | ---------- | --------------------------------------------------------------------------------- |
@@ -28,9 +34,7 @@ xspool allows you to **read RFID spool tags** and determine their status in real
 | ❌ **Detected - Wrong Format**          | **Red**    | The tag is an **incompatible format** and cannot be read properly.                |
 | 🔍 **Searching...**                     | **White**  | xspool is scanning for a tag, but nothing has been detected yet.                  |
 
----
-
-## **📌 Daily Usage: Loading Filament in AMS**
+## **📌 Loading Filaments in AMS**
 
 This process ensures that AMS correctly assigns the spool to a slot after scanning its RFID tag.
 
@@ -38,7 +42,7 @@ This process ensures that AMS correctly assigns the spool to a slot after scanni
 
 - Hold the **spool's RFID tag** close to the **xspool RFID scanner**.
 - If the tag is valid, the indicator will turn **green** (recognized).
-- If it is an OpenBamboo tag waiting for AMS, the indicator will turn **orange**.
+- If it is an OpenBamboo tag **queued for the next AMS change**, the indicator will turn **orange**.
 
 ### **2️⃣ Load the Spool into an AMS Slot**
 
