@@ -42,7 +42,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: "Slicer Sync",
-    Png: require("@site/static/img/b.png").default,
+    Png: require("@site/static/img/xspool-sync.png").default,
     description: (
       <>
         Syncs filament data directly from BambuStudio and OrcaSlicer, ensuring
@@ -51,8 +51,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: "Advanced Creality CFS Compatibility",
-    Png: require("@site/static/img/d.png").default,
+    title: "Creality CFS Compatibility",
+    Png: require("@site/static/img/cfs.png").default,
     description: (
       <>
         Supports both encrypted and non-encrypted Creality CFS filament tags,
@@ -61,8 +61,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: "BBL Spool Recognition",
-    Png: require("@site/static/img/e.png").default,
+    title: "BBL Spools",
+    Png: require("@site/static/img/bambulab.png").default,
     description: (
       <>
         Reads official BambuLab filament data, providing easy access to filament
@@ -72,7 +72,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: "Standalone or Xtouch-Pro Ready",
-    Png: require("@site/static/img/f.png").default,
+    Png: require("@site/static/img/xtouch.png").default,
     description: (
       <>
         Functions independently or enhances your workflow when paired with
