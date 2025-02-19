@@ -34,14 +34,14 @@ const config: Config = {
   },
   trailingSlash: false, // Optional: Remove trailing slashes
   scripts: [
-    {
-      src: "/xspool/js/cookie.js",
-      async: false,
-    },
-    {
-      src: "/xspool/js/cookie-consent.js",
-      async: false,
-    },
+    // {
+    //   src: "/xspool/js/cookie.js",
+    //   async: false,
+    // },
+    // {
+    //   src: "/xspool/js/cookie-consent.js",
+    //   async: false,
+    // },
   ],
   stylesheets: [
     "https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css",

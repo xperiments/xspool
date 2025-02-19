@@ -9,15 +9,6 @@ type FeatureItem = {
   description: ReactNode;
 };
 
-/*
-Seamless AMS Integration – Uses OpenBamboo Format to identify spools and automatically assign them to an AMS slot.  
-Effortless Slicer Sync – Syncs spool data directly from BambuStudio and OrcaSlicer, ensuring up-to-date spool information.  
-Enhanced OpenBamboo Support – Reads and writes spool data in the OpenBamboo format, which contains the same data as official BambuLab spools, plus additional augmented information for extended functionality and better spool management.  
-Advanced Creality CFS Compatibility – Supports both encrypted and non-encrypted Creality CFS spool tags, making it adaptable to different Creality systems.  
-BBL Spool Recognition – Reads official BambuLab spool data, allowing seamless integration with existing BBL spools.  
-Standalone or Xtouch-Pro Ready – Functions independently or enhances your workflow when paired with Xtouch-Pro for a more integrated experience.
-*/
-
 const FeatureList: FeatureItem[] = [
   {
     title: "AMS Integration",
