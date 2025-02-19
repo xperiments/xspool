@@ -202,6 +202,7 @@
 
       function blinkPattern(color, clicks, clickDelay, loopDelay) {
         let currentClick = 0;
+        let runs = 0;
         function blink() {
           if (currentClick < clicks * 2) {
             led.style.backgroundColor =
@@ -211,7 +212,12 @@
           } else {
             led.style.backgroundColor = "transparent";
             currentClick = 0;
-            setTimeout(blink, loopDelay);
+            runs++;
+            if (runs < 3) {
+              setTimeout(blink, loopDelay);
+            } else {
+              runs = 0;
+            }
           }
         }
         blink();
