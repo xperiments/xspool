@@ -1,0 +1,253 @@
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LED Status Simulator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+      }
+
+      .controls {
+        margin-top: 20px;
+      }
+      .container {
+        position: relative;
+        width: 643px;
+        height: 590px;
+      }
+      .container img,
+      .container .status {
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .status {
+        margin-top: 200px;
+      }
+      .led-container {
+        width: 80px;
+        height: 50px;
+        position: absolute;
+        top: 26px;
+        left: 70px;
+      }
+      .led {
+        width: 80px;
+        height: 50px;
+      }
+      h1,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="/xspool/img/shell.png" width="640" style="opacity: 0.2" />
+      <div class="led-container">
+        <div
+          class="led"
+          id="led"
+          style="background-color: rgb(128, 0, 0)"
+        ></div>
+      </div>
+      <img src="/xspool/img/button.png" width="640" />
+      <div class="status">
+        <h1 id="statusTitle">Initializing Error</h1>
+        <p id="statusDescription">Error occurred during initialization</p>
+      </div>
+    </div>
+
+    <script>
+      let led = document.getElementById("led");
+      let title = document.getElementById("statusTitle");
+      let description = document.getElementById("statusDescription");
+      let statusIndex = 0;
+      let loopTimeout;
+
+      const statusModes = [
+        {
+          title: "Initializing",
+          color: "#0066CC",
+          step: 128,
+          interval: 100,
+          description: "System is starting up",
+        },
+        {
+          title: "Initializing Error",
+          color: "#FF0000",
+          step: 128,
+          interval: 50,
+          description: "Error occurred during initialization",
+        },
+        {
+          title: "Tag Found",
+          color: "#00FF00",
+          step: 255,
+          interval: 50,
+          description: "An RFID tag was successfully detected",
+        },
+        {
+          title: "Queued Tag",
+          color: "#E76C00",
+          clicks: 3,
+          clickDelay: 150,
+          loopDelay: 1500,
+          description: "OpenBamboo tag detected",
+        },
+        {
+          title: "Tag Searching",
+          startColor: "#000000",
+          endColor: "#FFFFFF",
+          step: 24,
+          interval: 50,
+          description: "Searching...",
+        },
+        {
+          title: "Preparing Write",
+          startColor: "#200020",
+          endColor: "#FF00FF",
+          step: 16,
+          interval: 50,
+          description: "Preparing to write",
+        },
+        {
+          title: "Writing",
+          color: "#FF00FF",
+          step: 255,
+          interval: 50,
+          description: "Writing data...",
+        },
+        {
+          title: "Writing Success",
+          color: "#00FF00",
+          step: 255,
+          interval: 50,
+          description: "Write was successful",
+        },
+        {
+          title: "Writing Failed",
+          color: "#FF0000",
+          step: 255,
+          interval: 50,
+          description: "Writing to the tag failed",
+        },
+        {
+          title: "Off",
+          color: "transparent",
+          description: "",
+        },
+      ];
+
+      function cycleStatusModes() {
+        clearTimeout(loopTimeout);
+        let mode = statusModes[statusIndex];
+        title.innerText = mode.title;
+        description.innerText = mode.description;
+
+        if (mode.startColor && mode.endColor) {
+          pulseColorTransition(
+            mode.startColor,
+            mode.endColor,
+            mode.step,
+            mode.interval
+          );
+        } else if (mode.clicks) {
+          blinkPattern(
+            mode.color,
+            mode.clicks,
+            mode.clickDelay,
+            mode.loopDelay
+          );
+        } else {
+          pulseColor(mode.color, mode.step, mode.interval);
+        }
+
+        statusIndex = (statusIndex + 1) % statusModes.length;
+        loopTimeout = setTimeout(cycleStatusModes, 5000); // Cycle every 5 seconds
+      }
+
+      function pulseColor(color, step, interval) {
+        let brightness = 0;
+        let increasing = true;
+        function updatePulse() {
+          let rgb = hexToRgb(color);
+          let factor = brightness / 255;
+          led.style.backgroundColor = `rgb(${Math.round(
+            rgb.r * factor
+          )}, ${Math.round(rgb.g * factor)}, ${Math.round(rgb.b * factor)})`;
+          brightness = increasing ? brightness + step : brightness - step;
+          if (brightness >= 255) increasing = false;
+          if (brightness <= 0) increasing = true;
+          loopTimeout = setTimeout(updatePulse, interval);
+        }
+        updatePulse();
+      }
+
+      function pulseColorTransition(startColor, endColor, step, interval) {
+        let progress = 0;
+        let increasing = true;
+        function updateTransition() {
+          let color = interpolateColors(startColor, endColor, progress / 100);
+          led.style.backgroundColor = color;
+          progress = increasing ? progress + step : progress - step;
+          if (progress >= 100) increasing = false;
+          if (progress <= 0) increasing = true;
+          loopTimeout = setTimeout(updateTransition, interval);
+        }
+        updateTransition();
+      }
+
+      function blinkPattern(color, clicks, clickDelay, loopDelay) {
+        let currentClick = 0;
+        let runs = 0;
+        function blink() {
+          if (currentClick < clicks * 2) {
+            led.style.backgroundColor =
+              currentClick % 2 === 0 ? color : "transparent";
+            currentClick++;
+            setTimeout(blink, clickDelay);
+          } else {
+            led.style.backgroundColor = "transparent";
+            currentClick = 0;
+            runs++;
+            if (runs < 3) {
+              setTimeout(blink, loopDelay);
+            } else {
+              runs = 0;
+            }
+          }
+        }
+        blink();
+      }
+
+      function interpolateColors(color1, color2, factor) {
+        let c1 = hexToRgb(color1);
+        let c2 = hexToRgb(color2);
+        let r = Math.round(c1.r + factor * (c2.r - c1.r));
+        let g = Math.round(c1.g + factor * (c2.g - c1.g));
+        let b = Math.round(c1.b + factor * (c2.b - c1.b));
+        return `rgb(${r},${g},${b})`;
+      }
+
+      function hexToRgb(hex) {
+        let bigint = parseInt(hex.slice(1), 16);
+        return {
+          r: (bigint >> 16) & 255,
+          g: (bigint >> 8) & 255,
+          b: bigint & 255,
+        };
+      }
+
+      cycleStatusModes(); // Start cycling through status modes
+    </script>
+  </body>
+</html>
