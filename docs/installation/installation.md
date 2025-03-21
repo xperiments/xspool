@@ -11,7 +11,7 @@ Installing xspool is quick and easy. Just follow these steps to get started:
 ### Step 1: Access the Installation Page
 
 Go to the official installation page:  
-➡️ [xspool Installation](https://xperiments.in/xspool-bin)
+➡️ [xspool Installation](https://xspool.com/install)
 
 ### Step 2: Follow the On-Screen Instructions
 
