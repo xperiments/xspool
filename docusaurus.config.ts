@@ -35,11 +35,11 @@ const config: Config = {
   trailingSlash: false, // Optional: Remove trailing slashes
   scripts: [
     {
-      src: "/xspool/js/cookie.js",
+      src: "/js/cookie.js",
       async: false,
     },
     {
-      src: "/xspool/js/cookie-consent.js",
+      src: "/js/cookie-consent.js",
       async: false,
     },
   ],
@@ -92,22 +92,11 @@ const config: Config = {
         src: "img/logo.svg",
       },
       items: [
-        // {
-        //   type: "docSidebar",
-        //   sidebarId: "installSidebar",
-        //   position: "left",
-        //   label: "Documentation",
-        // },
         {
-          href: "/xspool/docs/installation",
+          href: "/docs/installation",
           label: "Installation",
           position: "left",
         },
-        // {
-        //   href: "/xspool/docs/hardware/required",
-        //   label: "Where to buy",
-        //   position: "left",
-        // },
         {
           href: "https://github.com/xperiments/xspool-source",
           label: "GitHub",
