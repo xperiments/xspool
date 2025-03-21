@@ -32,7 +32,7 @@ jobs:
       - name: Clone xspool-bin into build folder
         run: |
           git clone https://github.com/xperiments/xspool-bin.git temp-bin
-          mkdir -p build/xspool-bin
+          mkdir -p build/install
           cp -r temp-bin/* build/install/
 
       - name: Upload Build Artifact
