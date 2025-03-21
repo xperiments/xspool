@@ -29,11 +29,16 @@ jobs:
       - name: Build Docusaurus
         run: npm run build
 
+      - name: Clone xspool-bin into build folder
+        run: |
+          git clone https://github.com/tuusuario/xspool-bin.git temp-bin
+          mkdir -p build/xspool-bin
+          cp -r temp-bin/* build/xspool-bin/
+
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: build
-
   deploy:
     name: Deploy to GitHub Pages
     needs: build
