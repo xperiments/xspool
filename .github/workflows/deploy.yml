@@ -33,7 +33,7 @@ jobs:
         run: |
           git clone https://github.com/xperiments/xspool-bin.git temp-bin
           mkdir -p build/xspool-bin
-          cp -r temp-bin/* build/xspool-bin/
+          cp -r temp-bin/* build/install/
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
