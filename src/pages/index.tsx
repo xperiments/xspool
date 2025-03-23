@@ -61,6 +61,17 @@ function HomepageHeader() {
             }}
           />
         </div>
+        <div>
+          <button
+            className="button button--secondary button--outline button--lg"
+            style={{ color: "#42AE00", borderColor: "#42AE00" }}
+            onClick={() => {
+              window.location.href = "/install";
+            }}
+          >
+            Install
+          </button>
+        </div>
       </div>
     </header>
   );
