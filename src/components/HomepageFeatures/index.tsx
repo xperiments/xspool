@@ -9,64 +9,55 @@ type FeatureItem = {
   description: ReactNode;
 };
 
-/*
-Seamless AMS Integration – Uses OpenBamboo Format to identify spools and automatically assign them to an AMS slot.  
-Effortless Slicer Sync – Syncs spool data directly from BambuStudio and OrcaSlicer, ensuring up-to-date spool information.  
-Enhanced OpenBamboo Support – Reads and writes spool data in the OpenBamboo format, which contains the same data as official BambuLab spools, plus additional augmented information for extended functionality and better spool management.  
-Advanced Creality CFS Compatibility – Supports both encrypted and non-encrypted Creality CFS spool tags, making it adaptable to different Creality systems.  
-BBL Spool Recognition – Reads official BambuLab spool data, allowing seamless integration with existing BBL spools.  
-Standalone or Xtouch-Pro Ready – Functions independently or enhances your workflow when paired with Xtouch-Pro for a more integrated experience.
-*/
-
 const FeatureList: FeatureItem[] = [
   {
-    title: "AMS Integration",
-    Png: require("@site/static/img/h.png").default,
-    description: (
-      <>
-        Uses OpenBamboo Format to identify filaments and automatically assign
-        them to an AMS slot.
-      </>
-    ),
-  },
-  {
-    title: "OpenBamboo",
-    Png: require("@site/static/img/c.png").default,
-    description: (
-      <>
-        Reads and writes filament data in the OpenBamboo format, containing all
-        standard BambuLab filament information plus additional data for enhanced
-        functionality and better filament management.
-      </>
-    ),
-  },
-  {
-    title: "Slicer Sync",
-    Png: require("@site/static/img/xspool-sync.png").default,
-    description: (
-      <>
-        Syncs filament data directly from BambuStudio and OrcaSlicer, ensuring
-        up-to-date filament information.
-      </>
-    ),
-  },
-  {
-    title: "Creality CFS Compatibility",
-    Png: require("@site/static/img/cfs.png").default,
-    description: (
-      <>
-        Supports both encrypted and non-encrypted Creality CFS filament tags,
-        making it adaptable to different Creality systems.
-      </>
-    ),
-  },
-  {
-    title: "BBL Spools",
+    title: "Wide RFID Support",
     Png: require("@site/static/img/bambulab.png").default,
     description: (
       <>
-        Reads official BambuLab filament data, providing easy access to filament
-        details.
+        Read/write TigerTag tags, Creality CFS, Anycubic ACE Pro and BambuLab
+        (read only) spools.
+      </>
+    ),
+  },
+  {
+    title: "AMS / CFS Support",
+    Png: require("@site/static/img/h.png").default,
+    description: (
+      <>
+        Enables seamless filament management for both Bambulab AMS and Creality
+        CFS systems.
+      </>
+    ),
+  },
+  {
+    title: "TigerTag Format",
+    Png: require("@site/static/img/c.png").default,
+    description: (
+      <>
+        Just mount any TigerTag-equipped spool and xSpool’s reader will
+        instantly pull filament type, diameter, color and other data from the
+        tag.
+      </>
+    ),
+  },
+  {
+    title: "Real‑Time Slicer Sync",
+    Png: require("@site/static/img/xspool-sync.png").default,
+    description: (
+      <>
+        Automatically sync your filaments with BambuStudio and OrcaSlicer in
+        real-time, ensuring your data is always up-to-date.
+      </>
+    ),
+  },
+  {
+    title: "On-Device Web App",
+    Png: require("@site/static/img/app.png").default,
+    description: (
+      <>
+        On-device web app—no installs; use it to create tags and read info.
+        AMS/CFS slot detection runs autonomously without the app.
       </>
     ),
   },
@@ -99,8 +90,16 @@ function Feature({ title, Png, description }: FeatureItem) {
 
 export default function HomepageFeatures(): ReactNode {
   return (
-    <section className={styles.features}>
+    <section className={`${styles.features} ${styles.xspoolCore}`}>
       <div className="container">
+        <div
+          className="row"
+          style={{ justifyContent: "center", margin: "4rem", marginTop: "0" }}
+        >
+          <h1 style={{ color: "#8F8", borderBottom: "1px solid #8F8" }}>
+            Core features
+          </h1>
+        </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

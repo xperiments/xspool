@@ -45,6 +45,7 @@ const config: Config = {
   ],
   stylesheets: [
     "https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css",
+    "https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap",
   ],
   presets: [
     [
