@@ -10,8 +10,6 @@ import EnclosureFront from '/img/xspool-vector-c.svg';
 
 # Writing Tags
 
-xspool allows you to **write OpenBamboo tags** to store custom filament data, ensuring that AMS can recognize and manage spools with personalized settings.
-
 ---
 
 ## **📌 Step-by-Step Guide to Writing a Tag**
@@ -19,18 +17,13 @@ xspool allows you to **write OpenBamboo tags** to store custom filament data, en
 ### **0️⃣ Open xspool Web App**
 
 - Navigate to **`xspool-xxxx.local`** in your browser.
-- Click on the **write icon** to begin the tag-writing process.
-
-<div style={{marginTop:"48px",marginBottom:"48px"}}>
-<img src={screenshot} style={{width:"260px", borderRadius:"25px", marginRight:"16px"}}/>
-<img src={screenshot1} style={{width:"260px", borderRadius:"25px", marginRight:"16px"}}/>
-</div>
 
 ### **1️⃣ Select the Type of Tag to Write**
 
 - Choose the appropriate RFID tag type:
-  - **OpenBamboo** → For AMS-compatible spools.
-  - **Creality CFS** → For Creality filament systems (encrypted/non-encrypted).
+  - **TigerTag**
+  - **Creality CFS**
+  - **Anycubic ACE PRO**
 
 ### **2️⃣ Fill in the Required Filament Data**
 
@@ -42,11 +35,6 @@ xspool allows you to **write OpenBamboo tags** to store custom filament data, en
   - **Temperature & Drying Settings**
   - Any additional properties relevant to the tag format.
 
-<div style={{marginTop:"48px",marginBottom:"48px"}}>
-<img src={screenshot2} style={{width:"260px", borderRadius:"25px", marginRight:"16px"}}/>
-<img src={screenshot3} style={{width:"260px", borderRadius:"25px", marginRight:"16px"}}/>
-</div>
-
 ### **3️⃣ Press "Write Tag"**
 
 - Click the **"Write Tag"** button to initiate the writing process.
@@ -57,7 +45,12 @@ xspool allows you to **write OpenBamboo tags** to store custom filament data, en
 - Hold the **RFID tag** close to the **xspool RFID scanner**.
 - Once detected, the **LED will blink rapidly in violet**, indicating that data is being written to the tag.
 
-<EnclosureFront width={400} height={400} />
+<div style={{marginTop:"48px",marginBottom:"48px"}}>
+<video autoPlay muted loop playsInline style={{borderRadius:"25px", width:"296px"}}>
+  <source src="/video/video.mp4" type="video/mp4"></source>
+  Your browser does not support the video tag.
+</video>
+</div>
 
 ### **5️⃣ Wait for Confirmation**
 
@@ -65,7 +58,7 @@ xspool allows you to **write OpenBamboo tags** to store custom filament data, en
 
 | **Status**             | **Color** | **Meaning**                                                |
 | ---------------------- | --------- | ---------------------------------------------------------- |
-| ✅ **Success**         | **Green** | The tag was successfully written with OpenBamboo data.     |
+| ✅ **Success**         | **Green** | The tag was successfully written.                          |
 | ❌ **Failed**          | **Red**   | Writing failed. The tag may be incompatible or corrupted.  |
 | 🔍 **Waiting for Tag** | **White** | xspool is ready to write but no tag has been detected yet. |
 
